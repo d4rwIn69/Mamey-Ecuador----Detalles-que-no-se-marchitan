@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamey — Flores eternas hechas a mano en Ecuador</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Mamey Ecuador — Detalles que no se marchitan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* PALETA ELEGANTE */
+            --vino: #5A1A2E;
+            --vino-oscuro: #3D1120;
+            --dorado: #B8A060;
+            --dorado-claro: #D4C9A0;
+            --marfil: #F7F3EE;
+            --marfil-card: #FDFBF8;
+            --gris: #3D3D3C;
+            --gris-suave: #8A8580;
+            --blanco: #FFFFFF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,284 +26,307 @@
         }
 
         body {
-            font-family: 'Nunito', sans-serif;
-            background: #FFF5E6;
-            color: #2C2C2C;
+            font-family: 'Lato', sans-serif;
+            background: var(--marfil);
+            color: var(--gris);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 20px 15px;
-        }
-
-        /* Confeti de fondo sutil */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, #E86A3320 2px, transparent 2px),
-                radial-gradient(circle at 80% 20%, #F4C43020 2px, transparent 2px),
-                radial-gradient(circle at 40% 70%, #E8A0A020 2px, transparent 2px),
-                radial-gradient(circle at 70% 60%, #C8B5E020 2px, transparent 2px),
-                radial-gradient(circle at 10% 80%, #7BAE7F20 2px, transparent 2px);
-            background-size: 200px 200px;
-            pointer-events: none;
-            z-index: 0;
+            padding: 30px 16px;
         }
 
         .container {
             width: 100%;
-            max-width: 420px;
-            position: relative;
-            z-index: 1;
+            max-width: 380px;
             text-align: center;
         }
 
-        /* LOGO */
-        .logo-container {
-            margin-bottom: 20px;
+        /* ─── Logo ─── */
+        .logo-wrap {
+            margin-bottom: 24px;
         }
 
-        .logo-img {
-            width: 130px;
-            height: 130px;
+        .logo-ring {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid var(--dorado);
+            margin: 0 auto;
+            padding: 4px;
+            background: var(--blanco);
+        }
+
+        .logo-ring img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #D4AF37;
-            background: #FFFFFF;
-            padding: 5px;
-            box-shadow: 0 6px 25px rgba(232, 106, 51, 0.15);
+            display: block;
         }
 
-        .brand-name {
+        .logo-fallback {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            color: #2C2C2C;
-            margin-top: 12px;
+            font-size: 2.6rem;
+            color: var(--vino);
+            background: var(--blanco);
         }
 
-        .tagline {
-            font-size: 0.95rem;
-            color: #C8B5E0;
-            margin-top: 4px;
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            color: var(--vino);
+            margin-top: 16px;
+            letter-spacing: 1px;
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--vino);
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        .sub-quote {
+            font-size: 0.8rem;
+            color: var(--dorado);
+            margin-top: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
-        .description {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 12px;
-            font-weight: 400;
-            line-height: 1.5;
+        .desc {
+            font-size: 0.9rem;
+            color: var(--gris-suave);
+            margin-top: 18px;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* Línea ondulada artesanal */
-        .wavy-line {
-            margin: 20px auto;
-            width: 100px;
-            height: 20px;
-            position: relative;
-        }
-        .wavy-line::before {
-            content: '✦ ✦ ✦';
-            color: #D4AF37;
-            font-size: 1.2rem;
-            letter-spacing: 8px;
+        /* ─── Línea dorada con diamantes ─── */
+        .divider {
+            margin: 22px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        /* BOTONES */
+        .divider .dot {
+            width: 4px;
+            height: 4px;
+            background: var(--dorado);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .divider .dot.big {
+            width: 6px;
+            height: 6px;
+            opacity: 0.9;
+        }
+
+        /* ─── Botones ─── */
         .links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin: 25px 0;
+            gap: 10px;
+            margin: 24px 0;
         }
 
         .btn {
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 16px 22px;
+            padding: 16px 20px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             transition: all 0.3s ease;
-            border: 2px solid;
-            background: #FFFFFF;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            border: 1.5px solid;
+            background: var(--marfil-card);
+            position: relative;
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(90, 26, 46, 0.08);
         }
 
-        /* Icono circular de red social */
-        .social-icon {
-            width: 38px;
-            height: 38px;
+        .icon-wrap {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
             flex-shrink: 0;
+            overflow: hidden;
+            background: #f5f5f5;
         }
 
-        /* Botón Catálogo destacado */
+        .icon-wrap img {
+            width: 65%;
+            height: 65%;
+            object-fit: contain;
+        }
+
+        /* Catálogo */
         .btn-catalogo {
-            background: #E86A33;
-            color: #FFFFFF;
-            border-color: #E86A33;
+            background: var(--vino);
+            color: var(--marfil-card);
+            border-color: var(--vino);
             justify-content: center;
-            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
             padding: 18px;
+            letter-spacing: 0.5px;
         }
+
         .btn-catalogo:hover {
-            background: #D55A25;
-            border-color: #D55A25;
+            background: var(--vino-oscuro);
+            border-color: var(--vino-oscuro);
         }
 
-        /* WhatsApp */
-        .btn-whatsapp {
-            border-color: #25D366;
-            color: #25D366;
+        /* Redes — bordes MUY finos y apagados */
+        .btn-whatsapp { 
+            border-color: rgba(37, 211, 102, 0.25); 
+            color: #25D366; 
         }
-        .btn-whatsapp .social-icon { background: #25D366; }
-        .btn-whatsapp:hover {
-            background: #25D366;
-            color: #FFFFFF;
-        }
+        .btn-whatsapp:hover { background: #25D366; color: var(--blanco); }
+        .btn-whatsapp .icon-wrap { background: rgba(37, 211, 102, 0.08); }
 
-        /* Facebook */
-        .btn-facebook {
-            border-color: #1877F2;
-            color: #1877F2;
+        .btn-facebook { 
+            border-color: rgba(24, 119, 242, 0.25); 
+            color: #1877F2; 
         }
-        .btn-facebook .social-icon { background: #1877F2; font-family: serif; }
-        .btn-facebook:hover {
-            background: #1877F2;
-            color: #FFFFFF;
-        }
+        .btn-facebook:hover { background: #1877F2; color: var(--blanco); }
+        .btn-facebook .icon-wrap { background: rgba(24, 119, 242, 0.08); }
 
-        /* YouTube */
-        .btn-youtube {
-            border-color: #FF0000;
-            color: #FF0000;
+        .btn-youtube { 
+            border-color: rgba(255, 0, 0, 0.25); 
+            color: #FF0000; 
         }
-        .btn-youtube .social-icon { background: #FF0000; font-size: 0.9rem; }
-        .btn-youtube:hover {
-            background: #FF0000;
-            color: #FFFFFF;
-        }
+        .btn-youtube:hover { background: #FF0000; color: var(--blanco); }
+        .btn-youtube .icon-wrap { background: rgba(255, 0, 0, 0.08); }
 
-        /* Instagram */
-        .btn-instagram {
-            border-color: #E4405F;
-            color: #E4405F;
+        .btn-instagram { 
+            border-color: rgba(228, 64, 95, 0.25); 
+            color: #E4405F; 
         }
-        .btn-instagram .social-icon { 
-            background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366, #BC1888);
-            font-size: 1.2rem;
-        }
-        .btn-instagram:hover {
-            background: #E4405F;
-            color: #FFFFFF;
-        }
+        .btn-instagram:hover { background: #E4405F; color: var(--blanco); }
+        .btn-instagram .icon-wrap { background: rgba(228, 64, 95, 0.08); }
 
-        /* Separador */
         .separator {
-            margin: 15px 0;
-            font-size: 0.85rem;
-            color: #C8B5E0;
+            margin: 14px 0;
+            font-size: 0.75rem;
+            color: var(--dorado);
             font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
-        /* SECCIONES */
-        .section-box {
-            background: #FFF8F0;
+        /* ─── Secciones ─── */
+        .section {
+            background: rgba(253, 251, 248, 0.8);
             border-radius: 20px;
-            padding: 18px 15px;
-            margin: 25px 0;
-            border: 1px solid #F0E0D0;
+            padding: 20px 14px;
+            margin: 22px 0;
+            border: 1px solid rgba(201, 162, 39, 0.08);
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: #E86A33;
-            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: var(--vino);
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            font-weight: 600;
         }
 
         /* Categorías */
         .categories {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
         }
 
         .category {
-            border-radius: 18px;
-            padding: 20px 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            border-radius: 16px;
+            padding: 20px 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
             transition: all 0.3s ease;
             cursor: default;
-            border: 2px solid transparent;
+            border: 1.5px solid transparent;
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .category:hover {
-            transform: translateY(-4px) rotate(1deg);
+            transform: translateY(-3px);
         }
 
         .cat-icon {
-            font-size: 2rem;
+            font-size: 1.7rem;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        .cat-flores { background: #E8A0A020; border-color: #E8A0A0; color: #C07070; }
-        .cat-llaveros { background: #F4C43020; border-color: #F4C430; color: #B89020; }
-        .cat-festivos { background: #7BAE7F20; border-color: #7BAE7F; color: #5A8E5E; }
-        .cat-personajes { background: #C8B5E020; border-color: #C8B5E0; color: #8A7AAF; }
+        .cat-flores { border-color: rgba(138, 90, 90, 0.15); color: #8A5A5A; }
+        .cat-llaveros { border-color: rgba(138, 122, 74, 0.15); color: #8A7A4A; }
+        .cat-festivos { border-color: rgba(90, 122, 90, 0.15); color: #5A7A5A; }
+        .cat-personajes { border-color: rgba(106, 90, 122, 0.15); color: #6A5A7A; }
 
         /* Productos */
         .product-card {
-            background: #FFFFFF;
-            border-radius: 18px;
-            padding: 14px;
-            margin-bottom: 14px;
+            background: var(--blanco);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 12px;
             display: flex;
-            gap: 14px;
+            gap: 12px;
             align-items: center;
-            border: 2px solid transparent;
+            border: 1.5px solid transparent;
             transition: all 0.3s ease;
             text-align: left;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
         }
 
         .product-card:hover {
-            transform: translateX(5px);
+            transform: translateX(4px);
+            box-shadow: 0 6px 18px rgba(90, 26, 46, 0.06);
         }
 
         .product-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 14px;
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
@@ -298,191 +334,208 @@
         }
 
         .product-name {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #2C2C2C;
-            margin-bottom: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gris);
+            margin-bottom: 2px;
         }
 
         .product-desc {
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 6px;
+            font-size: 0.75rem;
+            color: #AAA;
+            margin-bottom: 4px;
         }
 
         .product-price {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: #E86A33;
+            color: var(--vino);
         }
 
         .btn-pedir {
-            background: #E86A33;
-            color: white;
+            background: var(--vino);
+            color: var(--marfil-card);
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 9px 16px;
+            border-radius: 18px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             cursor: pointer;
             transition: all 0.2s;
             white-space: nowrap;
+            font-family: 'Lato', sans-serif;
         }
 
         .btn-pedir:hover {
-            background: #D55A25;
+            background: var(--vino-oscuro);
             transform: scale(1.05);
         }
 
-        /* Footer cálido */
+        /* Footer */
         .footer {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 28px;
+            padding: 16px;
             text-align: center;
         }
 
-        .footer-heart {
-            font-size: 0.9rem;
-            color: #C8B5E0;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .footer-line {
+            font-size: 0.85rem;
+            color: var(--vino);
+            font-weight: 400;
+            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            opacity: 0.9;
         }
 
         .footer-brand {
-            font-size: 0.8rem;
-            color: #AAA;
+            font-size: 0.72rem;
+            color: var(--dorado);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
-        /* Animación sutil al cargar */
+        /* Animación suave */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .container > * {
-            animation: fadeInUp 0.6s ease forwards;
+        .animate {
+            animation: fadeInUp 0.7s ease forwards;
+            opacity: 0;
         }
 
-        .container > *:nth-child(1) { animation-delay: 0.1s; }
-        .container > *:nth-child(2) { animation-delay: 0.2s; }
-        .container > *:nth-child(3) { animation-delay: 0.3s; }
-        .container > *:nth-child(4) { animation-delay: 0.4s; }
+        .d1 { animation-delay: 0.1s; }
+        .d2 { animation-delay: 0.2s; }
+        .d3 { animation-delay: 0.35s; }
+        .d4 { animation-delay: 0.5s; }
+        .d5 { animation-delay: 0.65s; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <!-- LOGO -->
-        <div class="logo-container">
-            <img src="image.png" alt="Mamey Logo" class="logo-img" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-            <div style="width:130px;height:130px;border-radius:50%;border:3px solid #D4AF37;
-                        background:#fff;display:none;align-items:center;justify-content:center;
-                        margin:0 auto;font-family:'Playfair Display';font-size:2.5rem;color:#2C2C2C;">
-                M
+        <div class="logo-wrap animate d1">
+            <div class="logo-ring">
+                <img src="mamey-logo.png" alt="Mamey Ecuador" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback">M</div>
             </div>
-            <div class="brand-name">Mamey</div>
-            <div class="tagline">Imaginación y Colores</div>
-            <div class="description">
-                🌸 Flores eternas hechas a mano<br>
-                con amor, limpiapipas y mucha creatividad ✨
+            <div class="brand">Mamey Ecuador</div>
+            <div class="quote">Detalles que no se marchitan</div>
+            <div class="sub-quote">Hecho a mano con amor</div>
+            <div class="desc">
+                Flores eternas, llaveros y personajes<br>
+                hechos con limpiapipas y mucha creatividad
             </div>
-            <div class="wavy-line"></div>
+            <div class="divider">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot big"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
 
-        <!-- BOTÓN CATÁLOGO DESTACADO -->
-        <a href="#catalogo" class="btn btn-catalogo">
-            📖 Ver Catálogo Completo
+        <!-- CATÁLOGO -->
+        <a href="#catalogo" class="btn btn-catalogo animate d2">
+            Ver Catálogo Completo
         </a>
 
-        <div class="separator">✦ Síguenos y escríbenos ✦</div>
+        <div class="separator animate d2">✦ Conecta con nosotros ✦</div>
 
-        <!-- REDES SOCIALES CON LOGOS REALES -->
-        <div class="links">
+        <!-- REDES SOCIALES -->
+        <div class="links animate d3">
             <a href="https://wa.me/593994648312" class="btn btn-whatsapp" target="_blank">
-                <span class="social-icon">W</span>
+                <span class="icon-wrap">
+                    <img src="wa.png" alt="WhatsApp" onerror="this.style.display='none'; this.parentElement.style.background='rgba(37,211,102,0.15)'; this.parentElement.innerHTML='💬'">
+                </span>
                 WhatsApp
             </a>
             <a href="https://www.facebook.com/profile.php?id=61588974013593" class="btn btn-facebook" target="_blank">
-                <span class="social-icon" style="font-family:serif;">f</span>
+                <span class="icon-wrap">
+                    <img src="fb.png" alt="Facebook" onerror="this.style.display='none'; this.parentElement.style.background='rgba(24,119,242,0.15)'; this.parentElement.innerHTML='f'">
+                </span>
                 Facebook
             </a>
             <a href="https://www.youtube.com/@Mamey.ec28" class="btn btn-youtube" target="_blank">
-                <span class="social-icon">▶</span>
+                <span class="icon-wrap">
+                    <img src="yt.png" alt="YouTube" onerror="this.style.display='none'; this.parentElement.style.background='rgba(255,0,0,0.15)'; this.parentElement.innerHTML='▶'">
+                </span>
                 YouTube
             </a>
             <a href="https://www.instagram.com/mamey0428" class="btn btn-instagram" target="_blank">
-                <span class="social-icon">📷</span>
+                <span class="icon-wrap">
+                    <img src="ig.png" alt="Instagram" onerror="this.style.display='none'; this.parentElement.style.background='rgba(228,64,95,0.15)'; this.parentElement.innerHTML='📷'">
+                </span>
                 Instagram
             </a>
         </div>
 
         <!-- CATEGORÍAS -->
-        <div class="section-box">
+        <div class="section animate d4">
             <div class="section-title">
-                <span>🎨</span> Lo que hacemos con mucho cariño <span>🎨</span>
+                <span>✦</span> Nuestros productos <span>✦</span>
             </div>
             <div class="categories">
                 <div class="category cat-flores">
                     <span class="cat-icon">🌹</span>
-                    Flores<br>Eternas
+                    Flores Eternas
                 </div>
                 <div class="category cat-llaveros">
                     <span class="cat-icon">🔑</span>
-                    Llaveros<br>Personalizados
+                    Llaveros
                 </div>
                 <div class="category cat-festivos">
                     <span class="cat-icon">🎁</span>
-                    Arreglos<br>Festivos
+                    Arreglos Festivos
                 </div>
                 <div class="category cat-personajes">
                     <span class="cat-icon">🧸</span>
-                    Personajes<br>& Figuras
+                    Personajes
                 </div>
             </div>
         </div>
 
         <!-- DESTACADOS -->
-        <div class="section-box" id="catalogo">
+        <div class="section animate d5" id="catalogo">
             <div class="section-title">
-                <span>✨</span> Destacados de la semana <span>✨</span>
+                <span>✨</span> Destacados <span>✨</span>
             </div>
             
-            <div class="product-card" style="border-color: #E8A0A050;">
-                <div class="product-img" style="background: #E8A0A020;">🌹</div>
+            <div class="product-card" style="border-color: rgba(138,90,90,0.12);">
+                <div class="product-img" style="background: #F0E8E8;">
+                    <span style="font-size:1.8rem;">🌹</span>
+                </div>
                 <div class="product-info">
                     <div class="product-name">Rosa Eterna Roja</div>
                     <div class="product-desc">Hecha a mano, dura para siempre</div>
                     <div class="product-price">$8.00</div>
                 </div>
-                <button class="btn-pedir">¡Pedir!</button>
+                <button class="btn-pedir">Pedir</button>
             </div>
 
-            <div class="product-card" style="border-color: #F4C43050;">
-                <div class="product-img" style="background: #F4C43020;">🦋</div>
+            <div class="product-card" style="border-color: rgba(138,122,74,0.12);">
+                <div class="product-img" style="background: #F5F0E8;">
+                    <span style="font-size:1.8rem;">🦋</span>
+                </div>
                 <div class="product-info">
                     <div class="product-name">Mariposa Llavero</div>
                     <div class="product-desc">Perfecto para tu mochila</div>
-                    <div class="product-price" style="color: #F4C430;">$5.00</div>
+                    <div class="product-price" style="color: #8A7A4A;">$5.00</div>
                 </div>
-                <button class="btn-pedir" style="background: #F4C430;">¡Pedir!</button>
-            </div>
-
-            <div class="product-card" style="border-color: #7BAE7F50;">
-                <div class="product-img" style="background: #7BAE7F20;">👨</div>
-                <div class="product-info">
-                    <div class="product-name">Arreglo Día del Padre</div>
-                    <div class="product-desc">Incluye tarjeta personalizada</div>
-                    <div class="product-price" style="color: #7BAE7F;">$18.00</div>
-                </div>
-                <button class="btn-pedir" style="background: #7BAE7F;">¡Pedir!</button>
+                <button class="btn-pedir">Pedir</button>
             </div>
         </div>
 
         <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer-heart">💝 Hecho con las manos y el corazón en Ecuador 💝</div>
-            <div class="footer-brand">🌸 Mamey - Imaginación y Colores 🌸</div>
+        <div class="footer animate d5">
+            <div class="footer-line">Hecho con las manos y el corazón en Ecuador</div>
+            <div class="footer-brand">✦ Mamey Ecuador — Detalles que no se marchitan ✦</div>
         </div>
     </div>
 
