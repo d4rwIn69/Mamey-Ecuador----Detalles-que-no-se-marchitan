@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamey — Imaginación y Colores</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Mamey — Flores eternas hechas a mano en Ecuador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,25 +13,42 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background: #FAFAFA;
+            font-family: 'Nunito', sans-serif;
+            background: #FFF5E6;
             color: #2C2C2C;
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 20px 15px;
+        }
+
+        /* Confeti de fondo sutil */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #E86A3320 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, #F4C43020 2px, transparent 2px),
+                radial-gradient(circle at 40% 70%, #E8A0A020 2px, transparent 2px),
+                radial-gradient(circle at 70% 60%, #C8B5E020 2px, transparent 2px),
+                radial-gradient(circle at 10% 80%, #7BAE7F20 2px, transparent 2px);
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
             text-align: center;
         }
 
         /* LOGO */
         .logo-container {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .logo-img {
@@ -42,367 +59,432 @@
             border: 3px solid #D4AF37;
             background: #FFFFFF;
             padding: 5px;
-            box-shadow: 0 4px 20px rgba(200, 181, 224, 0.2);
+            box-shadow: 0 6px 25px rgba(232, 106, 51, 0.15);
         }
 
         .brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 600;
             color: #2C2C2C;
-            margin-top: 15px;
-            letter-spacing: 1px;
+            margin-top: 12px;
         }
 
         .tagline {
-            font-size: 1rem;
-            color: #9B8ABF;
-            margin-top: 5px;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-size: 0.95rem;
+            color: #C8B5E0;
+            margin-top: 4px;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .description {
-            font-size: 0.95rem;
-            color: #777;
-            margin-top: 8px;
-            font-weight: 300;
+            font-size: 1rem;
+            color: #666;
+            margin-top: 12px;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: #D4AF37;
+        /* Línea ondulada artesanal */
+        .wavy-line {
             margin: 20px auto;
-            border-radius: 2px;
+            width: 100px;
+            height: 20px;
+            position: relative;
+        }
+        .wavy-line::before {
+            content: '✦ ✦ ✦';
+            color: #D4AF37;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
         }
 
         /* BOTONES */
         .links {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin: 30px 0;
+            gap: 12px;
+            margin: 25px 0;
         }
 
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 24px;
+            gap: 14px;
+            padding: 16px 22px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 1rem;
+            font-weight: 700;
             transition: all 0.3s ease;
-            border: 1.5px solid #C8B5E0;
+            border: 2px solid;
             background: #FFFFFF;
-            color: #2C2C2C;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
         .btn:hover {
-            background: #C8B5E0;
-            color: #FFFFFF;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 181, 224, 0.35);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
+        /* Icono circular de red social */
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Botón Catálogo destacado */
+        .btn-catalogo {
+            background: #E86A33;
+            color: #FFFFFF;
+            border-color: #E86A33;
+            justify-content: center;
+            font-size: 1.1rem;
+            padding: 18px;
+        }
+        .btn-catalogo:hover {
+            background: #D55A25;
+            border-color: #D55A25;
+        }
+
+        /* WhatsApp */
         .btn-whatsapp {
             border-color: #25D366;
+            color: #25D366;
+        }
+        .btn-whatsapp .social-icon { background: #25D366; }
+        .btn-whatsapp:hover {
             background: #25D366;
             color: #FFFFFF;
         }
 
-        .btn-whatsapp:hover {
-            background: #1DA851;
-            border-color: #1DA851;
-        }
-
+        /* Facebook */
         .btn-facebook {
             border-color: #1877F2;
+            color: #1877F2;
+        }
+        .btn-facebook .social-icon { background: #1877F2; font-family: serif; }
+        .btn-facebook:hover {
             background: #1877F2;
             color: #FFFFFF;
         }
 
-        .btn-facebook:hover {
-            background: #0D65D9;
-            border-color: #0D65D9;
-        }
-
+        /* YouTube */
         .btn-youtube {
             border-color: #FF0000;
+            color: #FF0000;
+        }
+        .btn-youtube .social-icon { background: #FF0000; font-size: 0.9rem; }
+        .btn-youtube:hover {
             background: #FF0000;
             color: #FFFFFF;
         }
 
-        .btn-youtube:hover {
-            background: #CC0000;
-            border-color: #CC0000;
-        }
-
+        /* Instagram */
         .btn-instagram {
             border-color: #E4405F;
+            color: #E4405F;
+        }
+        .btn-instagram .social-icon { 
+            background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366, #BC1888);
+            font-size: 1.2rem;
+        }
+        .btn-instagram:hover {
             background: #E4405F;
             color: #FFFFFF;
         }
 
-        .btn-instagram:hover {
-            background: #D32A4A;
-            border-color: #D32A4A;
+        /* Separador */
+        .separator {
+            margin: 15px 0;
+            font-size: 0.85rem;
+            color: #C8B5E0;
+            font-weight: 600;
         }
 
-        /* CATEGORÍAS */
+        /* SECCIONES */
+        .section-box {
+            background: #FFF8F0;
+            border-radius: 20px;
+            padding: 18px 15px;
+            margin: 25px 0;
+            border: 1px solid #F0E0D0;
+        }
+
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #9B8ABF;
-            margin: 40px 0 20px;
+            font-size: 1.2rem;
+            color: #E86A33;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
 
+        /* Categorías */
         .categories {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-bottom: 30px;
         }
 
         .category {
-            background: #FFFFFF;
-            border: 1px solid #F0E6F0;
-            border-radius: 16px;
-            padding: 18px 10px;
+            border-radius: 18px;
+            padding: 20px 10px;
             font-size: 0.85rem;
-            color: #2C2C2C;
+            font-weight: 600;
             transition: all 0.3s ease;
             cursor: default;
+            border: 2px solid transparent;
         }
 
         .category:hover {
-            border-color: #C8B5E0;
-            box-shadow: 0 4px 15px rgba(200, 181, 224, 0.15);
-            transform: translateY(-2px);
+            transform: translateY(-4px) rotate(1deg);
         }
 
         .cat-icon {
-            font-size: 1.5rem;
+            font-size: 2rem;
             display: block;
+            margin-bottom: 8px;
+        }
+
+        .cat-flores { background: #E8A0A020; border-color: #E8A0A0; color: #C07070; }
+        .cat-llaveros { background: #F4C43020; border-color: #F4C430; color: #B89020; }
+        .cat-festivos { background: #7BAE7F20; border-color: #7BAE7F; color: #5A8E5E; }
+        .cat-personajes { background: #C8B5E020; border-color: #C8B5E0; color: #8A7AAF; }
+
+        /* Productos */
+        .product-card {
+            background: #FFFFFF;
+            border-radius: 18px;
+            padding: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .product-card:hover {
+            transform: translateX(5px);
+        }
+
+        .product-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: #888;
             margin-bottom: 6px;
         }
 
-        /* CATÁLOGO DESTACADO (solo en desktop se ve mejor, pero aquí va adaptado) */
-        .catalog-preview {
-            display: none;
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #E86A33;
         }
 
-        /* FOOTER */
+        .btn-pedir {
+            background: #E86A33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-pedir:hover {
+            background: #D55A25;
+            transform: scale(1.05);
+        }
+
+        /* Footer cálido */
         .footer {
-            margin-top: 40px;
+            margin-top: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-heart {
+            font-size: 0.9rem;
+            color: #C8B5E0;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand {
             font-size: 0.8rem;
-            color: #BBB;
-            font-weight: 300;
+            color: #AAA;
         }
 
-        .footer span {
-            color: #D4AF37;
+        /* Animación sutil al cargar */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE PARA PC */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 900px;
-                display: grid;
-                grid-template-columns: 320px 1fr;
-                gap: 50px;
-                text-align: left;
-                align-items: start;
-            }
-
-            .sidebar {
-                position: sticky;
-                top: 40px;
-            }
-
-            .logo-container {
-                text-align: center;
-            }
-
-            .links {
-                margin-top: 20px;
-            }
-
-            .main-content {
-                background: #FFFFFF;
-                border-radius: 24px;
-                padding: 40px;
-                border: 1px solid #F0E6F0;
-                box-shadow: 0 4px 30px rgba(0,0,0,0.03);
-            }
-
-            .catalog-preview {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                margin-top: 20px;
-            }
-
-            .product-card {
-                background: #FAFAFA;
-                border-radius: 16px;
-                overflow: hidden;
-                border: 1px solid #F0E6F0;
-                transition: all 0.3s ease;
-            }
-
-            .product-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 25px rgba(200, 181, 224, 0.2);
-            }
-
-            .product-img {
-                width: 100%;
-                height: 140px;
-                background: #F5E6E8;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2.5rem;
-            }
-
-            .product-info {
-                padding: 15px;
-            }
-
-            .product-name {
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: #2C2C2C;
-            }
-
-            .product-price {
-                font-size: 0.85rem;
-                color: #9B8ABF;
-                margin-top: 4px;
-            }
-
-            .section-title {
-                justify-content: flex-start;
-                margin-top: 0;
-            }
-
-            .categories {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        .container > * {
+            animation: fadeInUp 0.6s ease forwards;
         }
+
+        .container > *:nth-child(1) { animation-delay: 0.1s; }
+        .container > *:nth-child(2) { animation-delay: 0.2s; }
+        .container > *:nth-child(3) { animation-delay: 0.3s; }
+        .container > *:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- SIDEBAR: Logo + Botones -->
-        <div class="sidebar">
-            <div class="logo-container">
-                <!-- REEMPLAZA ESTA RUTA CON TU LOGO REAL -->
-                <img src="image.png" alt="Mamey Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div style="width:130px;height:130px;border-radius:50%;border:3px solid #D4AF37;background:#fff;display:none;align-items:center;justify-content:center;margin:0 auto;font-family:'Playfair Display';font-size:2.5rem;color:#2C2C2C;">M</div>
-                
-                <div class="brand-name">Mamey</div>
-                <div class="tagline">Imaginación y Colores</div>
-                <div class="description">Flores eternas & arte en limpiapipas ✦</div>
-                <div class="divider"></div>
+        <!-- LOGO -->
+        <div class="logo-container">
+            <img src="image.png" alt="Mamey Logo" class="logo-img" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div style="width:130px;height:130px;border-radius:50%;border:3px solid #D4AF37;
+                        background:#fff;display:none;align-items:center;justify-content:center;
+                        margin:0 auto;font-family:'Playfair Display';font-size:2.5rem;color:#2C2C2C;">
+                M
             </div>
+            <div class="brand-name">Mamey</div>
+            <div class="tagline">Imaginación y Colores</div>
+            <div class="description">
+                🌸 Flores eternas hechas a mano<br>
+                con amor, limpiapipas y mucha creatividad ✨
+            </div>
+            <div class="wavy-line"></div>
+        </div>
 
-            <div class="links">
-                <a href="#catalogo" class="btn">✦ Ver Catálogo</a>
-                <a href="https://wa.me/593994648312" class="btn btn-whatsapp" target="_blank">✦ Escríbenos por WhatsApp</a>
-                <a href="https://www.facebook.com/profile.php?id=61588974013593" class="btn btn-facebook" target="_blank">✦ Facebook</a>
-                <a href="https://www.youtube.com/@Mamey.ec28" class="btn btn-youtube" target="_blank">✦ YouTube</a>
-                <a href="https://www.instagram.com/mamey0428" class="btn btn-instagram" target="_blank">✦ Instagram</a>
+        <!-- BOTÓN CATÁLOGO DESTACADO -->
+        <a href="#catalogo" class="btn btn-catalogo">
+            📖 Ver Catálogo Completo
+        </a>
+
+        <div class="separator">✦ Síguenos y escríbenos ✦</div>
+
+        <!-- REDES SOCIALES CON LOGOS REALES -->
+        <div class="links">
+            <a href="https://wa.me/593994648312" class="btn btn-whatsapp" target="_blank">
+                <span class="social-icon">W</span>
+                WhatsApp
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61588974013593" class="btn btn-facebook" target="_blank">
+                <span class="social-icon" style="font-family:serif;">f</span>
+                Facebook
+            </a>
+            <a href="https://www.youtube.com/@Mamey.ec28" class="btn btn-youtube" target="_blank">
+                <span class="social-icon">▶</span>
+                YouTube
+            </a>
+            <a href="https://www.instagram.com/mamey0428" class="btn btn-instagram" target="_blank">
+                <span class="social-icon">📷</span>
+                Instagram
+            </a>
+        </div>
+
+        <!-- CATEGORÍAS -->
+        <div class="section-box">
+            <div class="section-title">
+                <span>🎨</span> Lo que hacemos con mucho cariño <span>🎨</span>
+            </div>
+            <div class="categories">
+                <div class="category cat-flores">
+                    <span class="cat-icon">🌹</span>
+                    Flores<br>Eternas
+                </div>
+                <div class="category cat-llaveros">
+                    <span class="cat-icon">🔑</span>
+                    Llaveros<br>Personalizados
+                </div>
+                <div class="category cat-festivos">
+                    <span class="cat-icon">🎁</span>
+                    Arreglos<br>Festivos
+                </div>
+                <div class="category cat-personajes">
+                    <span class="cat-icon">🧸</span>
+                    Personajes<br>& Figuras
+                </div>
             </div>
         </div>
 
-        <!-- MAIN: Categorías + Catálogo -->
-        <div class="main-content">
+        <!-- DESTACADOS -->
+        <div class="section-box" id="catalogo">
             <div class="section-title">
-                <span>✦</span> Nuestros productos <span>✦</span>
+                <span>✨</span> Destacados de la semana <span>✨</span>
             </div>
             
-            <div class="categories">
-                <div class="category">
-                    <span class="cat-icon">🌸</span>
-                    Flores eternas
+            <div class="product-card" style="border-color: #E8A0A050;">
+                <div class="product-img" style="background: #E8A0A020;">🌹</div>
+                <div class="product-info">
+                    <div class="product-name">Rosa Eterna Roja</div>
+                    <div class="product-desc">Hecha a mano, dura para siempre</div>
+                    <div class="product-price">$8.00</div>
                 </div>
-                <div class="category">
-                    <span class="cat-icon">🔑</span>
-                    Llaveros
-                </div>
-                <div class="category">
-                    <span class="cat-icon">🎁</span>
-                    Arreglos festivos
-                </div>
-                <div class="category">
-                    <span class="cat-icon">🧸</span>
-                    Personajes
-                </div>
+                <button class="btn-pedir">¡Pedir!</button>
             </div>
 
-            <div class="section-title" id="catalogo">
-                <span>✦</span> Catálogo destacado <span>✦</span>
+            <div class="product-card" style="border-color: #F4C43050;">
+                <div class="product-img" style="background: #F4C43020;">🦋</div>
+                <div class="product-info">
+                    <div class="product-name">Mariposa Llavero</div>
+                    <div class="product-desc">Perfecto para tu mochila</div>
+                    <div class="product-price" style="color: #F4C430;">$5.00</div>
+                </div>
+                <button class="btn-pedir" style="background: #F4C430;">¡Pedir!</button>
             </div>
 
-            <div class="catalog-preview">
-                <div class="product-card">
-                    <div class="product-img">🌹</div>
-                    <div class="product-info">
-                        <div class="product-name">Rosa eterna</div>
-                        <div class="product-price">Desde $8.00</div>
-                    </div>
+            <div class="product-card" style="border-color: #7BAE7F50;">
+                <div class="product-img" style="background: #7BAE7F20;">👨</div>
+                <div class="product-info">
+                    <div class="product-name">Arreglo Día del Padre</div>
+                    <div class="product-desc">Incluye tarjeta personalizada</div>
+                    <div class="product-price" style="color: #7BAE7F;">$18.00</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img">🔑</div>
-                    <div class="product-info">
-                        <div class="product-name">Llavero personalizado</div>
-                        <div class="product-price">Desde $5.00</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🎄</div>
-                    <div class="product-info">
-                        <div class="product-name">Arreglo festivo</div>
-                        <div class="product-price">Desde $15.00</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🧸</div>
-                    <div class="product-info">
-                        <div class="product-name">Personaje mini</div>
-                        <div class="product-price">Desde $6.00</div>
-                    </div>
-                </div>
+                <button class="btn-pedir" style="background: #7BAE7F;">¡Pedir!</button>
             </div>
+        </div>
 
-            <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:20px; display:none;" class="mobile-catalog-msg">
-                🖼️ Revisa nuestro catálogo completo en el botón de arriba
-            </p>
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-heart">💝 Hecho con las manos y el corazón en Ecuador 💝</div>
+            <div class="footer-brand">🌸 Mamey - Imaginación y Colores 🌸</div>
         </div>
     </div>
 
-    <div class="footer" style="position:fixed; bottom:10px; width:100%; text-align:center; left:0;">
-        Hecho con <span>✦</span> por Mamey
-    </div>
-
-    <script>
-        // Si es móvil, muestra mensaje alternativo
-        if (window.innerWidth < 768) {
-            document.querySelector('.mobile-catalog-msg').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
