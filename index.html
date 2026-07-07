@@ -7,16 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* PALETA ELEGANTE */
             --vino: #5A1A2E;
             --vino-oscuro: #3D1120;
             --dorado: #B8A060;
-            --dorado-claro: #D4C9A0;
             --marfil: #F7F3EE;
             --marfil-card: #FDFBF8;
             --gris: #3D3D3C;
             --gris-suave: #8A8580;
-            --blanco: #FFFFFF;
         }
 
         * {
@@ -32,7 +29,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 30px 16px;
+            padding: 40px 18px;
         }
 
         .container {
@@ -43,17 +40,17 @@
 
         /* ─── Logo ─── */
         .logo-wrap {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
         }
 
         .logo-ring {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 2px solid var(--dorado);
             margin: 0 auto;
             padding: 4px;
-            background: var(--blanco);
+            background: #fff;
         }
 
         .logo-ring img {
@@ -72,9 +69,9 @@
             align-items: center;
             justify-content: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: var(--vino);
-            background: var(--blanco);
+            background: #fff;
         }
 
         .brand {
@@ -82,23 +79,22 @@
             font-size: 2.2rem;
             font-weight: 600;
             color: var(--vino);
-            margin-top: 16px;
-            letter-spacing: 1px;
+            margin-top: 18px;
         }
 
         .quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: var(--vino);
-            margin-top: 6px;
+            margin-top: 8px;
             line-height: 1.3;
         }
 
         .sub-quote {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--dorado);
-            margin-top: 12px;
+            margin-top: 14px;
             font-weight: 700;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -107,40 +103,62 @@
         .desc {
             font-size: 0.9rem;
             color: var(--gris-suave);
-            margin-top: 18px;
+            margin-top: 20px;
             font-weight: 300;
             line-height: 1.6;
         }
 
-        /* ─── Línea dorada con diamantes ─── */
+        /* ─── Línea dorada ─── */
         .divider {
-            margin: 22px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .divider .dot {
-            width: 4px;
-            height: 4px;
+            margin: 28px auto;
+            width: 60px;
+            height: 1px;
             background: var(--dorado);
-            border-radius: 50%;
-            opacity: 0.5;
+            position: relative;
         }
 
-        .divider .dot.big {
-            width: 6px;
-            height: 6px;
-            opacity: 0.9;
+        .divider::before,
+        .divider::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dorado);
+            font-size: 0.7rem;
         }
 
-        /* ─── Botones ─── */
+        .divider::before { left: -12px; }
+        .divider::after { right: -12px; }
+
+        /* ─── Botón Catálogo (el más importante) ─── */
+        .btn-catalogo {
+            display: block;
+            padding: 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: var(--vino);
+            color: var(--marfil-card);
+            border: 2px solid var(--vino);
+            transition: all 0.3s ease;
+            margin-bottom: 14px;
+        }
+
+        .btn-catalogo:hover {
+            background: var(--vino-oscuro);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(90, 26, 46, 0.15);
+        }
+
+        /* ─── Botones redes sociales ─── */
         .links {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin: 24px 0;
+            margin: 20px 0;
         }
 
         .btn {
@@ -155,12 +173,10 @@
             transition: all 0.3s ease;
             border: 1.5px solid;
             background: var(--marfil-card);
-            position: relative;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(90, 26, 46, 0.08);
         }
 
         .icon-wrap {
@@ -181,223 +197,61 @@
             object-fit: contain;
         }
 
-        /* Catálogo */
-        .btn-catalogo {
-            background: var(--vino);
-            color: var(--marfil-card);
-            border-color: var(--vino);
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            padding: 18px;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-catalogo:hover {
-            background: var(--vino-oscuro);
-            border-color: var(--vino-oscuro);
-        }
-
-        /* Redes — bordes MUY finos y apagados */
-        .btn-whatsapp { 
-            border-color: rgba(37, 211, 102, 0.25); 
-            color: #25D366; 
-        }
-        .btn-whatsapp:hover { background: #25D366; color: var(--blanco); }
+        /* WhatsApp */
+        .btn-whatsapp { border-color: rgba(37, 211, 102, 0.25); color: #25D366; }
+        .btn-whatsapp:hover { background: #25D366; color: #fff; }
         .btn-whatsapp .icon-wrap { background: rgba(37, 211, 102, 0.08); }
 
-        .btn-facebook { 
-            border-color: rgba(24, 119, 242, 0.25); 
-            color: #1877F2; 
-        }
-        .btn-facebook:hover { background: #1877F2; color: var(--blanco); }
+        /* Facebook */
+        .btn-facebook { border-color: rgba(24, 119, 242, 0.25); color: #1877F2; }
+        .btn-facebook:hover { background: #1877F2; color: #fff; }
         .btn-facebook .icon-wrap { background: rgba(24, 119, 242, 0.08); }
 
-        .btn-youtube { 
-            border-color: rgba(255, 0, 0, 0.25); 
-            color: #FF0000; 
-        }
-        .btn-youtube:hover { background: #FF0000; color: var(--blanco); }
+        /* YouTube */
+        .btn-youtube { border-color: rgba(255, 0, 0, 0.25); color: #FF0000; }
+        .btn-youtube:hover { background: #FF0000; color: #fff; }
         .btn-youtube .icon-wrap { background: rgba(255, 0, 0, 0.08); }
 
-        .btn-instagram { 
-            border-color: rgba(228, 64, 95, 0.25); 
-            color: #E4405F; 
-        }
-        .btn-instagram:hover { background: #E4405F; color: var(--blanco); }
+        /* Instagram */
+        .btn-instagram { border-color: rgba(228, 64, 95, 0.25); color: #E4405F; }
+        .btn-instagram:hover { background: #E4405F; color: #fff; }
         .btn-instagram .icon-wrap { background: rgba(228, 64, 95, 0.08); }
 
+        /* Separador */
         .separator {
-            margin: 14px 0;
+            margin: 18px 0;
             font-size: 0.75rem;
             color: var(--dorado);
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        /* ─── Secciones ─── */
-        .section {
-            background: rgba(253, 251, 248, 0.8);
-            border-radius: 20px;
-            padding: 20px 14px;
-            margin: 22px 0;
-            border: 1px solid rgba(201, 162, 39, 0.08);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            color: var(--vino);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        /* Categorías */
-        .categories {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .category {
-            border-radius: 16px;
-            padding: 20px 6px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            cursor: default;
-            border: 1.5px solid transparent;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .category:hover {
-            transform: translateY(-3px);
-        }
-
-        .cat-icon {
-            font-size: 1.7rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .cat-flores { border-color: rgba(138, 90, 90, 0.15); color: #8A5A5A; }
-        .cat-llaveros { border-color: rgba(138, 122, 74, 0.15); color: #8A7A4A; }
-        .cat-festivos { border-color: rgba(90, 122, 90, 0.15); color: #5A7A5A; }
-        .cat-personajes { border-color: rgba(106, 90, 122, 0.15); color: #6A5A7A; }
-
-        /* Productos */
-        .product-card {
-            background: var(--blanco);
-            border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            border: 1.5px solid transparent;
-            transition: all 0.3s ease;
-            text-align: left;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
-        }
-
-        .product-card:hover {
-            transform: translateX(4px);
-            box-shadow: 0 6px 18px rgba(90, 26, 46, 0.06);
-        }
-
-        .product-img {
-            width: 72px;
-            height: 72px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-info {
-            flex: 1;
-        }
-
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--gris);
-            margin-bottom: 2px;
-        }
-
-        .product-desc {
-            font-size: 0.75rem;
-            color: #AAA;
-            margin-bottom: 4px;
-        }
-
-        .product-price {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--vino);
-        }
-
-        .btn-pedir {
-            background: var(--vino);
-            color: var(--marfil-card);
-            border: none;
-            padding: 9px 16px;
-            border-radius: 18px;
-            font-weight: 700;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .btn-pedir:hover {
-            background: var(--vino-oscuro);
-            transform: scale(1.05);
+            opacity: 0.7;
         }
 
         /* Footer */
         .footer {
-            margin-top: 28px;
-            padding: 16px;
-            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
         }
 
         .footer-line {
             font-size: 0.85rem;
             color: var(--vino);
-            font-weight: 400;
-            margin-bottom: 6px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            opacity: 0.9;
+            opacity: 0.85;
+            margin-bottom: 6px;
         }
 
         .footer-brand {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--dorado);
             letter-spacing: 2px;
             text-transform: uppercase;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
-        /* Animación suave */
+        /* Animación */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -409,10 +263,8 @@
         }
 
         .d1 { animation-delay: 0.1s; }
-        .d2 { animation-delay: 0.2s; }
-        .d3 { animation-delay: 0.35s; }
-        .d4 { animation-delay: 0.5s; }
-        .d5 { animation-delay: 0.65s; }
+        .d2 { animation-delay: 0.25s; }
+        .d3 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -426,24 +278,18 @@
                 <div class="logo-fallback">M</div>
             </div>
             <div class="brand">Mamey Ecuador</div>
-            <div class="quote">Detalles que no se marchitan</div>
+            <div class="quote">Detalles que no<br>se marchitan</div>
             <div class="sub-quote">Hecho a mano con amor</div>
             <div class="desc">
                 Flores eternas, llaveros y personajes<br>
                 hechos con limpiapipas y mucha creatividad
             </div>
-            <div class="divider">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot big"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+            <div class="divider"></div>
         </div>
 
-        <!-- CATÁLOGO -->
-        <a href="#catalogo" class="btn btn-catalogo animate d2">
-            Ver Catálogo Completo
+        <!-- CATÁLOGO (lo más importante, primero) -->
+        <a href="https://canva.link/lar517ubkvcg585" class="btn-catalogo animate d2" target="_blank">
+             Ver Catálogo Completo
         </a>
 
         <div class="separator animate d2">✦ Conecta con nosotros ✦</div>
@@ -476,64 +322,8 @@
             </a>
         </div>
 
-        <!-- CATEGORÍAS -->
-        <div class="section animate d4">
-            <div class="section-title">
-                <span>✦</span> Nuestros productos <span>✦</span>
-            </div>
-            <div class="categories">
-                <div class="category cat-flores">
-                    <span class="cat-icon">🌹</span>
-                    Flores Eternas
-                </div>
-                <div class="category cat-llaveros">
-                    <span class="cat-icon">🔑</span>
-                    Llaveros
-                </div>
-                <div class="category cat-festivos">
-                    <span class="cat-icon">🎁</span>
-                    Arreglos Festivos
-                </div>
-                <div class="category cat-personajes">
-                    <span class="cat-icon">🧸</span>
-                    Personajes
-                </div>
-            </div>
-        </div>
-
-        <!-- DESTACADOS -->
-        <div class="section animate d5" id="catalogo">
-            <div class="section-title">
-                <span>✨</span> Destacados <span>✨</span>
-            </div>
-            
-            <div class="product-card" style="border-color: rgba(138,90,90,0.12);">
-                <div class="product-img" style="background: #F0E8E8;">
-                    <span style="font-size:1.8rem;">🌹</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Rosa Eterna Roja</div>
-                    <div class="product-desc">Hecha a mano, dura para siempre</div>
-                    <div class="product-price">$8.00</div>
-                </div>
-                <button class="btn-pedir">Pedir</button>
-            </div>
-
-            <div class="product-card" style="border-color: rgba(138,122,74,0.12);">
-                <div class="product-img" style="background: #F5F0E8;">
-                    <span style="font-size:1.8rem;">🦋</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Mariposa Llavero</div>
-                    <div class="product-desc">Perfecto para tu mochila</div>
-                    <div class="product-price" style="color: #8A7A4A;">$5.00</div>
-                </div>
-                <button class="btn-pedir">Pedir</button>
-            </div>
-        </div>
-
         <!-- FOOTER -->
-        <div class="footer animate d5">
+        <div class="footer animate d3">
             <div class="footer-line">Hecho con las manos y el corazón en Ecuador</div>
             <div class="footer-brand">✦ Mamey Ecuador — Detalles que no se marchitan ✦</div>
         </div>
